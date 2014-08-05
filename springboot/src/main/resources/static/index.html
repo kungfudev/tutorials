@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="/resources/css/bootstrap.css" rel="stylesheet">
+</head>
+<body ng-app="userModule" ng-controller="UserController">
+<h1>Goodbye {{user.name}}!</h1>
+
+<script src="/resources/js/jquery.js" type="text/javascript"></script>
+<script src="/resources/js/bootstrap.js" type="text/javascript"></script>
+<script src="/resources/js/angular.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    angular
+            .module("userModule", [])
+            .controller("UserController", function ($scope, $http) {
+                $http.get("/service/user").then(function (result) {
+                    $scope.user = result.data;
+                })
+            });
+</script>
+
+</body>
+</html>
