@@ -19,7 +19,7 @@ public class H2JdbcTest {
     @Before
     public void setUp() throws Exception {
 
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:test", "sa", "");
+        Connection connection = DriverManager.getConnection("jdbc:h2:target/test", "sa", "");
         try {
             connection.prepareStatement("drop table test;").execute();
         } catch (SQLException ignore) {
@@ -29,7 +29,7 @@ public class H2JdbcTest {
     @Test
     public void shouldConnectToInMemoryH2Database() throws Exception {
 
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:test", "sa", "");
+        Connection connection = DriverManager.getConnection("jdbc:h2:target/test", "sa", "");
 
         Assert.assertNotNull(connection);
     }
@@ -37,7 +37,7 @@ public class H2JdbcTest {
     @Test
     public void shouldCreateAndDropTable() throws Exception {
 
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:test", "sa", "");
+        Connection connection = DriverManager.getConnection("jdbc:h2:target/test", "sa", "");
 
         connection
                 .prepareStatement("create table test (id int primary key, name varchar(255));")
@@ -51,7 +51,7 @@ public class H2JdbcTest {
     @Test
     public void shouldInsertAndQueryData() throws Exception {
 
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:test", "sa", "");
+        Connection connection = DriverManager.getConnection("jdbc:h2:target/test", "sa", "");
 
         connection
                 .prepareStatement("create table test (id int primary key, name varchar(255));")

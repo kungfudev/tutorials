@@ -26,7 +26,7 @@ import java.util.Map;
         "classpath:/META-INF/spring/spring-jdbc.xml"
 })
 @RunWith(SpringJUnit4ClassRunner.class)
-public class H2SpringJdbcTest {
+public class H2SpringJdbcIntegrationTest {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
